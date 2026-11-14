@@ -1,0 +1,333 @@
+{
+ "trained_at": "2026-11-12",
+ "seed": 42,
+ "window_hours": 12,
+ "fever_celsius": 38.0,
+ "data": {
+  "A": {
+   "patients": 19953,
+   "rows": 782435
+  },
+  "B": {
+   "patients": 19674,
+   "rows": 756583
+  }
+ },
+ "split": {
+  "train_rows": 624734,
+  "val_rows": 157701,
+  "external_rows": 756583,
+  "best_iteration_main": 112
+ },
+ "exclusions": {
+  "A": {
+   "sepsis_before_exclusion": 1790,
+   "excluded_early_onset": 380,
+   "excluded_early_pct": 21.22905027932961,
+   "excluded_short_stay_only": 3
+  },
+  "B": {
+   "sepsis_before_exclusion": 1142,
+   "excluded_early_onset": 326,
+   "excluded_early_pct": 28.546409807355516,
+   "excluded_short_stay_only": 0
+  },
+  "note": "أرقام الاختبار على B لا تشمل هؤلاء المرضى"
+ },
+ "no_fever": {
+  "A": {
+   "sepsis_patients": 1407,
+   "with_temp_measurement": 1353,
+   "excluded_no_measurement": 54,
+   "no_fever_n": 899,
+   "no_fever_pct": 66.44493717664449
+  },
+  "B": {
+   "sepsis_patients": 816,
+   "with_temp_measurement": 811,
+   "excluded_no_measurement": 5,
+   "no_fever_n": 539,
+   "no_fever_pct": 66.46115906288532
+  }
+ },
+ "models": {
+  "fever": {
+   "threshold": 38.0,
+   "validation": {
+    "auroc": 0.5937572002171911,
+    "auprc": 0.023258811570774324,
+    "prevalence": 0.013398773628575595,
+    "patient": {
+     "n_sepsis": 302,
+     "detected": 103,
+     "sensitivity": 0.34105960264900664,
+     "median_lead_h": 9.0,
+     "n_nonsepsis": 3689,
+     "pct_nonsepsis_alerted": 0.26511249661154784,
+     "false_alerts_per_patient_day": 0.25865835542221316
+    }
+   },
+   "external_B": {
+    "auroc": 0.6559064956919576,
+    "auprc": 0.01983998749764802,
+    "prevalence": 0.0074783599420023975,
+    "patient": {
+     "n_sepsis": 816,
+     "detected": 281,
+     "sensitivity": 0.3443627450980392,
+     "median_lead_h": 9.0,
+     "n_nonsepsis": 18858,
+     "pct_nonsepsis_alerted": 0.16417435571110403,
+     "false_alerts_per_patient_day": 0.1664159044214303
+    }
+   }
+  },
+  "logreg": {
+   "threshold": 0.7188419728298214,
+   "validation": {
+    "auroc": 0.6627790654680964,
+    "auprc": 0.02670710370590322,
+    "prevalence": 0.013398773628575595,
+    "patient": {
+     "n_sepsis": 302,
+     "detected": 97,
+     "sensitivity": 0.3211920529801324,
+     "median_lead_h": 9.0,
+     "n_nonsepsis": 3689,
+     "pct_nonsepsis_alerted": 0.2594198969910545,
+     "false_alerts_per_patient_day": 0.34883924150184964
+    }
+   },
+   "external_B": {
+    "auroc": 0.6839608478399205,
+    "auprc": 0.019023341223005117,
+    "prevalence": 0.0074783599420023975,
+    "patient": {
+     "n_sepsis": 816,
+     "detected": 282,
+     "sensitivity": 0.34558823529411764,
+     "median_lead_h": 9.0,
+     "n_nonsepsis": 18858,
+     "pct_nonsepsis_alerted": 0.2039983031074345,
+     "false_alerts_per_patient_day": 0.2551180694234676
+    }
+   }
+  },
+  "main": {
+   "threshold": 0.713,
+   "validation": {
+    "auroc": 0.7271975049179419,
+    "auprc": 0.04033507127594752,
+    "prevalence": 0.013398773628575595,
+    "patient": {
+     "n_sepsis": 302,
+     "detected": 134,
+     "sensitivity": 0.44370860927152317,
+     "median_lead_h": 9.0,
+     "n_nonsepsis": 3689,
+     "pct_nonsepsis_alerted": 0.26619680130116563,
+     "false_alerts_per_patient_day": 0.34883924150184964
+    }
+   },
+   "external_B": {
+    "auroc": 0.7419172016113555,
+    "auprc": 0.02728076024783892,
+    "prevalence": 0.0074783599420023975,
+    "patient": {
+     "n_sepsis": 816,
+     "detected": 344,
+     "sensitivity": 0.4215686274509804,
+     "median_lead_h": 9.0,
+     "n_nonsepsis": 18858,
+     "pct_nonsepsis_alerted": 0.1808781419026408,
+     "false_alerts_per_patient_day": 0.23286477987874143
+    },
+    "patient_medium": {
+     "n_sepsis": 816,
+     "detected": 561,
+     "sensitivity": 0.6875,
+     "median_lead_h": 10.0,
+     "n_nonsepsis": 18858,
+     "pct_nonsepsis_alerted": 0.46404708876869233,
+     "false_alerts_per_patient_day": 0.7485260219221394
+    }
+   }
+  },
+  "full": {
+   "threshold": 0.7104433090354974,
+   "validation": {
+    "auroc": 0.747450334539041,
+    "auprc": 0.04180496053704663,
+    "prevalence": 0.013398773628575595,
+    "patient": {
+     "n_sepsis": 302,
+     "detected": 149,
+     "sensitivity": 0.49337748344370863,
+     "median_lead_h": 10.0,
+     "n_nonsepsis": 3689,
+     "pct_nonsepsis_alerted": 0.2507454594741122,
+     "false_alerts_per_patient_day": 0.3486644723427806
+    }
+   },
+   "external_B": {
+    "auroc": 0.7533846486234786,
+    "auprc": 0.029610160736547757,
+    "prevalence": 0.0074783599420023975,
+    "patient": {
+     "n_sepsis": 816,
+     "detected": 318,
+     "sensitivity": 0.3897058823529412,
+     "median_lead_h": 8.0,
+     "n_nonsepsis": 18858,
+     "pct_nonsepsis_alerted": 0.15531869763495598,
+     "false_alerts_per_patient_day": 0.19665135217241692
+    }
+   }
+  }
+ },
+ "main_at_fever_false_alert_rate": {
+  "threshold": 0.7388218787657479,
+  "external_B": {
+   "n_sepsis": 816,
+   "detected": 281,
+   "sensitivity": 0.3443627450980392,
+   "median_lead_h": 8.0,
+   "n_nonsepsis": 18858,
+   "pct_nonsepsis_alerted": 0.13882702301410543,
+   "false_alerts_per_patient_day": 0.17028604173355658
+  }
+ },
+ "thresholds": {
+  "medium": 0.589,
+  "high": 0.713,
+  "why": "اختيار الفريق من جدول المقايضة على التحقق: عالٍ حساسية 44% مع 0.35 كاذبة/مريض/يوم، ومتوسط مستوى انتباه بحساسية 69%"
+ },
+ "top_features": [
+  {
+   "feature": "Resp_slope24",
+   "ar": "اتجاه التنفس خلال 24 ساعة",
+   "en": "Respiration trend over 24 h",
+   "mean_abs_shap": 0.3808121979236603
+  },
+  {
+   "feature": "Resp_value",
+   "ar": "التنفس الآن",
+   "en": "Respiration now",
+   "mean_abs_shap": 0.2543807327747345
+  },
+  {
+   "feature": "Temp_value",
+   "ar": "الحرارة الآن",
+   "en": "Temperature now",
+   "mean_abs_shap": 0.18745900690555573
+  },
+  {
+   "feature": "Temp_slope24",
+   "ar": "اتجاه الحرارة خلال 24 ساعة",
+   "en": "Temperature trend over 24 h",
+   "mean_abs_shap": 0.17464636266231537
+  },
+  {
+   "feature": "O2Sat_slope24",
+   "ar": "اتجاه الأكسجين خلال 24 ساعة",
+   "en": "Oxygen saturation trend over 24 h",
+   "mean_abs_shap": 0.1724364310503006
+  },
+  {
+   "feature": "Resp_delta6",
+   "ar": "تغيّر التنفس خلال 6 ساعات",
+   "en": "Respiration change over 6 h",
+   "mean_abs_shap": 0.15087054669857025
+  },
+  {
+   "feature": "Temp_dev",
+   "ar": "الحرارة مقابل معتاده",
+   "en": "Temperature vs. usual",
+   "mean_abs_shap": 0.12977659702301025
+  },
+  {
+   "feature": "HR_value",
+   "ar": "النبض الآن",
+   "en": "Heart rate now",
+   "mean_abs_shap": 0.12640534341335297
+  },
+  {
+   "feature": "HR_dev",
+   "ar": "النبض مقابل معتاده",
+   "en": "Heart rate vs. usual",
+   "mean_abs_shap": 0.11315730959177017
+  },
+  {
+   "feature": "HR_slope24",
+   "ar": "اتجاه النبض خلال 24 ساعة",
+   "en": "Heart rate trend over 24 h",
+   "mean_abs_shap": 0.09491255134344101
+  }
+ ],
+ "hours_since_ablation": {
+  "auroc_without": 0.7271975049179419,
+  "auroc_with_hours_since": 0.7253237572317907,
+  "diff": -0.0018737476861512281
+ },
+ "feature_sets": {
+  "patch": [
+   "Age",
+   "Gender",
+   "HR_value",
+   "HR_dev",
+   "HR_delta6",
+   "HR_slope24",
+   "HR_std6",
+   "O2Sat_value",
+   "O2Sat_dev",
+   "O2Sat_delta6",
+   "O2Sat_slope24",
+   "O2Sat_std6",
+   "Temp_value",
+   "Temp_dev",
+   "Temp_delta6",
+   "Temp_slope24",
+   "Temp_std6",
+   "Resp_value",
+   "Resp_dev",
+   "Resp_delta6",
+   "Resp_slope24",
+   "Resp_std6"
+  ],
+  "full": [
+   "Age",
+   "Gender",
+   "HR_value",
+   "HR_dev",
+   "HR_delta6",
+   "HR_slope24",
+   "HR_std6",
+   "O2Sat_value",
+   "O2Sat_dev",
+   "O2Sat_delta6",
+   "O2Sat_slope24",
+   "O2Sat_std6",
+   "Temp_value",
+   "Temp_dev",
+   "Temp_delta6",
+   "Temp_slope24",
+   "Temp_std6",
+   "Resp_value",
+   "Resp_dev",
+   "Resp_delta6",
+   "Resp_slope24",
+   "Resp_std6",
+   "SBP_value",
+   "SBP_dev",
+   "SBP_delta6",
+   "SBP_slope24",
+   "SBP_std6",
+   "MAP_value",
+   "MAP_dev",
+   "MAP_delta6",
+   "MAP_slope24",
+   "MAP_std6",
+   "shock_index"
+  ]
+ }
+}
